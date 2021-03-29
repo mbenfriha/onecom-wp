@@ -36,17 +36,28 @@
 
 
                 <!-- logo -->
-					<div class="logo">
-						<a href="<?php echo home_url(); ?>">
+					<div class="logo grid grid-cols-7">
+						<a class="col-span-6" href="<?php echo home_url(); ?>">
 							<!-- svg logo - toddmotto.com/mastering-svg-use-for-a-retina-web-fallbacks-with-png-script -->
 							<img src="<?php echo get_template_directory_uri(); ?>/img/logo.png" alt="Logo" class="logo-img">
 						</a>
+                        <div href="" class="col-span-1 text-8xl lg:invisible">
+                            <div class="navigation-menu">
+                            <div class="menu-corner"></div>
+                            <input class="navigation-input" id="navigation-input" type="checkbox">
+                            <label class="navigation-button" for="navigation-input"></label>
+                            <div class="navigation-list"> 
+                            <?php html5blank_nav(); ?>
+                            </div>
+                        </div>
+   
+                        </div>
 					</div>
 					<!-- /logo -->
 
 					<!-- nav -->
                     <div class="grid grid-cols-7 gap-4">
-                        <nav class="nav col-span-3" role="navigation">
+                        <nav class="nav col-span-3 invisible lg:visible" role="navigation">
                             <div class="home-nav">
                                 <div id="carre"></div>
                                 <p class="line-through ml-24">Accueil</p>
@@ -54,7 +65,7 @@
                             <?php html5blank_nav(); ?>
                         </nav>
 
-                        <div class="text-white col-span-3">
+                        <div class="text-white col-span-6 lg:col-span-3">
 
                             <p class="text-4xl mb-10 font-medium">Communication corporate</p>
                             <hr class="w-24 mb-20">
