@@ -3,8 +3,8 @@
 	<main role="main">
 		<!-- section -->
 		<section>
-
-			<h1><?php the_title(); ?></h1>
+			<h2 class="text-8xl mb-10 font-normal mt-20"><?php the_title(); ?></h2>
+	<hr class="w-24 mb-20 border-solid border-1 border-black">
 
 		<?php if (have_posts()): while (have_posts()) : the_post(); ?>
 

@@ -41,12 +41,12 @@
 							<!-- svg logo - toddmotto.com/mastering-svg-use-for-a-retina-web-fallbacks-with-png-script -->
 							<img src="<?php echo get_template_directory_uri(); ?>/img/logo.png" alt="Logo" class="logo-img">
 						</a>
-                        <div href="" class="col-span-1 text-8xl lg:invisible">
+                        <div href="" class="col-span-1 text-8xl">
                             <div class="navigation-menu">
                             <div class="menu-corner"></div>
                             <input class="navigation-input" id="navigation-input" type="checkbox">
                             <label class="navigation-button" for="navigation-input"></label>
-                            <div class="navigation-list"> 
+                            <div class="navigation-list w-full lg:w-6/12"> 
                             <?php html5blank_nav(); ?>
                             </div>
                         </div>
@@ -56,11 +56,11 @@
 					<!-- /logo -->
 
 					<!-- nav -->
-                    <div class="grid grid-cols-7 gap-4">
-                        <nav class="nav col-span-3 invisible lg:visible" role="navigation">
+                    <div class="grid grid-cols-7 gap-4 p-3">
+                        <nav class="nav col-span-3 invisible h-2  lg:h-auto lg:visible" role="navigation">
                             <div class="home-nav">
-                                <div id="carre"></div>
-                                <p class="line-through ml-24">Accueil</p>
+                                <img class="stroke-menu" src="<?php echo get_template_directory_uri(); ?>/img/icons/losange_trace.png" alt="">
+                                <p class="line-through ml-16 text-white">Accueil</p>
                             </div>
                             <?php html5blank_nav(); ?>
                         </nav>
@@ -75,19 +75,24 @@
                             des entreprises, des institutions, <br>
                             des PME et des start-ups.</p>
                         </div>
-                        <div class="col-span-1 text-white text-8xl text-right">
-                            <ul>
+                        <div class="col-span-1 text-white text-8xl text-right  flex">
+                            <ul class="m-auto">
                                 <li class="mb-10 h-20"><img src="<?php echo get_template_directory_uri(); ?>/img/facebook.png" alt="onecom facebook" class="float-right pr-4"></li>
                                 <li class="mb-10 h-20"><img src="<?php echo get_template_directory_uri(); ?>/img/instagram.png" alt="onecom instagram" class="float-right"></li>
                                 <li class="mb-10 h-14"><img src="<?php echo get_template_directory_uri(); ?>/img/vimeo.png" alt="onecom vimeo" class="float-right"></li>
                                 <li class="mb-10 h-20"><img src="<?php echo get_template_directory_uri(); ?>/img/linkedin.png" alt="onecom linkedin" class="float-right"></li>
                             </ul>
                         </div>
+                        <div class="col-span-7 justify-center flex mb-20 mt-10">
+                            <div>
+                        <img src="<?php echo get_template_directory_uri(); ?>/img/icons/trace_8.png" alt="">
+                        </div>
+                        </div>
                     </div>
 
 					<!-- /nav -->
-
                 </div>
+               
 			</header>
 			<!-- /header -->
         <div class="wrapper">

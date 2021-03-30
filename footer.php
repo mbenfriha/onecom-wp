@@ -2,7 +2,7 @@
 <!-- /wrapper -->
 
 			<!-- footer -->
-			<footer class="footer bg-black text-white  pt-24 p-10  font-medium" role="contentinfo">
+			<footer class="footer bg-gray-900	 text-white  pt-24 p-10  font-medium" role="contentinfo">
                 <div class="wrapper text-2xl">
 
                 <div class="grid grid-cols-4 gap-4 mb-24">
