@@ -123,7 +123,7 @@ msgstr "(Éditer)"
 
 #: ../functions.php:411 ../functions.php:412
 msgid "HTML5 Blank Custom Post"
-msgstr "Article personnalisé"
+msgstr "Réalisation"
 
 #: ../functions.php:413
 msgid "Add New"
@@ -131,7 +131,7 @@ msgstr "Ajouter nouveau"
 
 #: ../functions.php:414
 msgid "Add New HTML5 Blank Custom Post"
-msgstr "Ajouter un article personnalisé"
+msgstr "Ajouter une réalisattion"
 
 #: ../functions.php:415
 msgid "Edit"
@@ -139,27 +139,27 @@ msgstr "Éditer"
 
 #: ../functions.php:416
 msgid "Edit HTML5 Blank Custom Post"
-msgstr "Éditer l'article personnalisé"
+msgstr "Éditer la réalisation"
 
 #: ../functions.php:417
 msgid "New HTML5 Blank Custom Post"
-msgstr "Nouvel article personnalisé"
+msgstr "Nouvel réalisation"
 
 #: ../functions.php:418 ../functions.php:419
 msgid "View HTML5 Blank Custom Post"
-msgstr "Voir l'article personnalisé"
+msgstr "Voir la réalisation"
 
 #: ../functions.php:420
 msgid "Search HTML5 Blank Custom Post"
-msgstr "Rechercher un article personnalisé"
+msgstr "Rechercher une réalisation"
 
 #: ../functions.php:421
 msgid "No HTML5 Blank Custom Posts found"
-msgstr "Aucun article personnalisé trouvé"
+msgstr "Aucune réalisation"
 
 #: ../functions.php:422
 msgid "No HTML5 Blank Custom Posts found in Trash"
-msgstr "Aucun article personnalisé trouvé dans la corbeille"
+msgstr "Aucune réalisation trouvé dans la corbeille"
 
 #: ../index.php:6
 msgid "Latest Posts"

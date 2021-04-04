@@ -1,45 +1,44 @@
 <?php get_header(); ?>
+<?php 
+	 $coverPost = get_field('cover-post');
+	?>
+<div class="grid grid-cols-1 h-610 background-image-galery mb-4" style="background-image:url(<?= $coverPost['url'] ?>)">
+</div>
 
-	<main role="main">
+	<main role="main" class="wrapper">
+	<div class="grid grid-cols-1 mb-36 text-right text-xl">
+	<?= get_field('cover-copyright') ?>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-4 lg:gap-60">
 	<!-- section -->
-	<section>
+	<section class="col-span-3">
 
 	<?php if (have_posts()): while (have_posts()) : the_post(); ?>
 
 		<!-- article -->
-		<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+		<article class="mb-36" id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 
 			<!-- post thumbnail -->
-			<?php if ( has_post_thumbnail()) : // Check if Thumbnail exists ?>
-				<a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>">
-					<?php the_post_thumbnail(); // Fullsize image for the single post ?>
-				</a>
-			<?php endif; ?>
+	
 			<!-- /post thumbnail -->
 
 			<!-- post title -->
-			<h1>
-				<a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>"><?php the_title(); ?></a>
-			</h1>
+			<p class="display-inline mb-8 relative">
+			<img class="stroke-menu black-image" style="left: -11em;" src="<?php echo get_template_directory_uri(); ?>/img/icons/losange_trace.png" alt="">
+					<a class="uppercase font-bold text-4xl mr-6" href="<?php the_permalink(); ?>" title="<?php the_title(); ?>">
+						<?php the_title(); ?>
+					</a>
+					<span class="text-xl category-real uppercase font-normal mr-6"> <?=edit_post_link();?></span>
+
+				<span class="text-xl uppercase font-normal mr-6"><?php the_time('F Y'); ?> </span>
+				<span class="text-xl category-real uppercase font-normal"><?= the_category(', ') ?></span>
+			</p>
 			<!-- /post title -->
 
-			<!-- post details -->
-			<span class="date"><?php the_time('F j, Y'); ?> <?php the_time('g:i a'); ?></span>
-			<span class="author"><?php _e( 'Published by', 'html5blank' ); ?> <?php the_author_posts_link(); ?></span>
-			<span class="comments"><?php if (comments_open( get_the_ID() ) ) comments_popup_link( __( 'Leave your thoughts', 'html5blank' ), __( '1 Comment', 'html5blank' ), __( '% Comments', 'html5blank' )); ?></span>
-			<!-- /post details -->
 
+			<div class="grid-cols-1 mb-10 content font-normal text-xl">
 			<?php the_content(); // Dynamic Content ?>
-
-			<?php the_tags( __( 'Tags: ', 'html5blank' ), ', ', '<br>'); // Separated by commas with a line break at the end ?>
-
-			<p><?php _e( 'Categorised in: ', 'html5blank' ); the_category(', '); // Separated by commas ?></p>
-
-			<p><?php _e( 'This post was written by ', 'html5blank' ); the_author(); ?></p>
-
-			<?php edit_post_link(); // Always handy to have Edit Post Links available ?>
-
-			<?php comments_template(); ?>
+			</div>
 
 		</article>
 		<!-- /article -->
@@ -59,9 +58,41 @@
 	<?php endif; ?>
 
 	</section>
+	<div>
+		<h2 class="uppercase text-4xl text-center font-bold mb-20">
+			Articles connexes
+		</h2>
+	<?php
+
+// The Query
+query_posts('orderby=rand&posts_per_page=5&cat='. get_the_category(get_the_ID())[0]->term_id);
+
+// The Loop
+while ( have_posts() ) : the_post();
+?>
+	<!-- // echo
+	// 	'<div>
+	// 	   <a href="'. get_permalink(get_the_ID()) .'">' . get_the_post_thumbnail(get_the_ID(), 'medium') . '</a>
+	// 		<span class="text-xl font-bold"> <a href="'. get_permalink(get_the_ID()) .'">' . get_the_title(get_the_ID()). ' </a></span>
+	// 		<a class="inline-block rounded-full py-1 font-semibold mr-2 mb-2 underline more">Lire</a>  
+	// 	   </div>
+	// 	   '; -->
+	<div class="h-96 background-image-galery mb-14" style="background-image:url(<?= get_the_post_thumbnail_url(get_the_ID()) ?>)">
+
+	</div>
+	<p class="text-2xl font-bold mb-8"><?= get_the_title(get_the_ID()) ?></p>
+	<a href="<?= get_permalink(get_the_ID()) ?>" class="inline-block rounded-full py-1 font-semibold mr-2 mb-32 underline more">Lire</a>
+
+<?php
+
+endwhile;
+
+// Reset Query
+wp_reset_query();
+?>
+</div>
+	</div>
 	<!-- /section -->
 	</main>
-
-<?php get_sidebar(); ?>
 
 <?php get_footer(); ?>

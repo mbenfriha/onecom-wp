@@ -76,7 +76,7 @@ function html5blank_nav()
 		'menu_id'         => '',
 		'echo'            => true,
 		'fallback_cb'     => 'wp_page_menu',
-		'before'          => '',
+		'before'          => '<span>01</span> ',
 		'after'           => '',
 		'link_before'     => '',
 		'link_after'      => '',
@@ -128,7 +128,8 @@ function register_html5_menu()
     register_nav_menus(array( // Using array to specify more menus if needed
         'header-menu' => __('Header Menu', 'html5blank'), // Main Navigation
         'sidebar-menu' => __('Sidebar Menu', 'html5blank'), // Sidebar Navigation
-        'extra-menu' => __('Extra Menu', 'html5blank') // Extra Navigation if needed (duplicate as many as you need!)
+        'extra-menu' => __('Menu bas de page milieu', 'html5blank'), // Extra Navigation if needed (duplicate as many as you need!)
+        'extra-menu-right' => __('Menu bas de page droite', 'html5blank') // Extra Navigation if needed (duplicate as many as you need!)
     ));
 }
 
@@ -221,13 +222,13 @@ function html5wp_pagination()
 // Custom Excerpts
 function html5wp_index($length) // Create 20 Word Callback for Index page Excerpts, call using html5wp_excerpt('html5wp_index');
 {
-    return 20;
+    return 10;
 }
 
 // Create 40 Word Callback for Custom Post Excerpts, call using html5wp_excerpt('html5wp_custom_post');
 function html5wp_custom_post($length)
 {
-    return 40;
+    return 10;
 }
 
 // Create the Custom Excerpts callback
@@ -375,7 +376,7 @@ add_filter('wp_nav_menu_args', 'my_wp_nav_menu_args'); // Remove surrounding <di
 add_filter('the_category', 'remove_category_rel_from_category_list'); // Remove invalid rel attribute
 add_filter('the_excerpt', 'shortcode_unautop'); // Remove auto <p> tags in Excerpt (Manual Excerpts only)
 add_filter('the_excerpt', 'do_shortcode'); // Allows Shortcodes to be executed in Excerpt (Manual Excerpts only)
-add_filter('excerpt_more', 'html5_blank_view_article'); // Add 'View Article' button instead of [...] for Excerpts
+//add_filter('excerpt_more', 'html5_blank_view_article'); // Add 'View Article' button instead of [...] for Excerpts
 add_filter('show_admin_bar', 'remove_admin_bar'); // Remove Admin bar
 add_filter('style_loader_tag', 'html5_style_remove'); // Remove 'text/css' from enqueued stylesheet
 add_filter('post_thumbnail_html', 'remove_thumbnail_dimensions', 10); // Remove width and height dynamic attributes to thumbnails
@@ -398,9 +399,9 @@ add_shortcode('html5_shortcode_demo_2', 'html5_shortcode_demo_2'); // Place [htm
 // Create 1 Custom Post type for a Demo, called HTML5-Blank
 function create_post_type_html5()
 {
-    register_taxonomy_for_object_type('category', 'html5-blank'); // Register Taxonomies for Category
-    register_taxonomy_for_object_type('post_tag', 'html5-blank');
-    register_post_type('html5-blank', // Register Custom Post Type
+    register_taxonomy_for_object_type('category', 'realisation'); // Register Taxonomies for Category
+    register_taxonomy_for_object_type('post_tag', 'realisation');
+    register_post_type('realisation', // Register Custom Post Type
         array(
         'labels' => array(
             'name' => __('HTML5 Blank Custom Post', 'html5blank'), // Rename these to suit
@@ -449,4 +450,8 @@ function html5_shortcode_demo_2($atts, $content = null) // Demo Heading H2 short
     return '<h2>' . $content . '</h2>';
 }
 
+add_filter('acf/format_value/type=text', 'do_shortcode');
+
+
 ?>
+

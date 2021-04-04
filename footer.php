@@ -17,19 +17,11 @@
                         </ul>
                     </div>
                     <div>
-                        <ul>
-                            <li class="mb-3">A propos</li>
-                            <li class="mb-3">Réalisations</li>
-                            <li class="mb-3">Prestations</li>
-                            <li class="mb-3">Contact</li>
-                        </ul>
+                        <?php wp_nav_menu( array( 'theme_location' => 'extra-menu', 'container_class' => 'menu', 'container_id' => 'menu', 'menu_class' => '' ) ); ?>
                     </div>
                     <div>
-                        <ul>
-                            <li class="mb-3">Mentions légales</li>
-                            <li class="mb-3">Politique des cookies</li>
-                            <li class="mb-3">Politique des données</li>
-                        </ul>
+                    <?php wp_nav_menu( array( 'theme_location' => 'extra-menu-right', 'container_class' => 'menu', 'container_id' => 'menu', 'menu_class' => '' ) ); ?>
+
                     </div>
                 </div>
                     <hr class="mb-8">
