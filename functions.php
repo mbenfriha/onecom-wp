@@ -454,5 +454,141 @@ function html5_shortcode_demo_2($atts, $content = null) // Demo Heading H2 short
 add_filter('acf/format_value/type=text', 'do_shortcode');
 
 
-?>
 
+add_action('wp_ajax_myfilter', 'filter_function'); // wp_ajax_{ACTION HERE} 
+add_action('wp_ajax_nopriv_myfilter', 'filter_function');
+
+function filter_function(){
+	$args = array(
+        'orderby' => 'rand', 'posts_per_page' => '100', 'post_type' => 'realisation'
+	);
+ 
+	// for taxonomies / categories
+	if( isset( $_POST['categoryfilter'] ) && $_POST['categoryfilter'] !== 'all' )
+		$args['tax_query'] = array(
+			array(
+				'taxonomy' => 'category',
+				'field' => 'id',
+				'terms' => $_POST['categoryfilter']
+			)
+		);
+ 
+ 
+	// if post thumbnail is set
+	// if( isset( $_POST['featured_image'] ) && $_POST['featured_image'] == 'on' )
+	// 	$args['meta_query'][] = array(
+	// 		'key' => '_thumbnail_id',
+	// 		'compare' => 'EXISTS'
+	// 	);
+	// if you want to use multiple checkboxed, just duplicate the above 5 lines for each checkbox
+ 
+	$query = new WP_Query( $args );
+	
+	if( $query->have_posts() ) :
+		while( $query->have_posts() ): $query->the_post();
+        // $permalink = get_permalink($recent["ID"]);
+        // $img = get_the_post_thumbnail_url($recent["ID"]);
+        // $title = the_title();
+        // $date = the_time('F Y');
+		// 	echo "
+        //     <a href='$permalink'>
+        //     <div class='background-image-galery relative text-white text-2xl font-extrabold'
+        //         style='background-image: url('$img'); height: 410px;'>
+        //         <div class='absolute bottom-8 left-8 overlay-galery'>
+        //             <p class='uppercase'>$title</p>
+        //             <p class='uppercase'> $date - <span class='text-xl uppercase font-normal'>  
+        //                 $category[0]->cat_name</span> 
+        //             </p>
+        //         </div>
+        //     </div>
+        // </a>";
+         			get_template_part( 'template-parts/realisation/content', get_post_format() );
+
+		endwhile;
+		wp_reset_postdata();
+	else :
+		echo 'Aucune réalisation';
+	endif;
+	
+	die();
+ }
+// add_action('wp_ajax_loadmorebutton', 'loadmore_ajax_handler');
+// add_action('wp_ajax_nopriv_loadmorebutton', 'loadmore_ajax_handler');
+
+// function loadmore_ajax_handler(){
+ 
+// 	// prepare our arguments for the query
+// 	$params = json_decode( stripslashes( $_POST['query'] ), true ); // query_posts() takes care of the necessary sanitization 
+// 	$params['paged'] = $_POST['page'] + 1; // we need next page to be loaded
+// 	$params['post_status'] = 'publish';
+ 
+// 	// it is always better to use WP_Query but not here
+// 	query_posts( $params );
+ 
+// 	if( have_posts() ) :
+ 
+// 		// run the loop
+// 		while( have_posts() ): the_post();
+ 
+// 			// look into your theme code how the posts are inserted, but you can use your own HTML of course
+// 			// do you remember? - my example is adapted for Twenty Seventeen theme
+// 			get_template_part( 'template-parts/realisation/content', get_post_format() );
+// 			// for the test purposes comment the line above and uncomment the below one
+// 			// the_title();
+ 
+ 
+// 		endwhile;
+// 	endif;
+// 	die; // here we exit the script and even no wp_reset_query() required!
+// }
+ 
+ 
+ 
+// add_action('wp_ajax_mishafilter', 'filter_function'); 
+// add_action('wp_ajax_nopriv_mishafilter', 'filter_function');
+
+// function filter_function(){
+
+// 	// example: date-ASC 
+// 	$order = explode( '-', $_POST['order_by'] );
+	
+// 	$params = array(
+// 		'posts_per_page' => $_POST['number_of_results'], // when set to -1, it shows all posts
+// 		'orderby' => $order[0], // example: date
+// 		'order'	=> $order[1] // example: ASC
+// 	);
+ 
+	
+// 	query_posts( $params );
+	
+// 	global $wp_query;
+	
+// 	if( have_posts() ) :
+ 
+//  		ob_start(); // start buffering because we do not need to print the posts now
+ 		
+// 		while( have_posts() ): the_post();
+ 
+// 			// adapted for Twenty Seventeen theme
+// 			get_template_part( 'template-parts/realisation/content', get_post_format() );
+ 
+// 		endwhile;
+ 
+//  		$posts_html = ob_get_contents(); // we pass the posts to variable
+//    		ob_end_clean(); // clear the buffer
+// 	else:
+// 		$posts_html = '<p>Nothing found for your criteria.</p>';
+// 	endif;
+	
+// 	// no wp_reset_query() required
+ 
+//  	echo json_encode( array(
+// 		'posts' => json_encode( $wp_query->query_vars ),
+// 		'max_page' => $wp_query->max_num_pages,
+// 		'found_posts' => $wp_query->found_posts,
+// 		'content' => $posts_html
+// 	) );
+ 	
+// 	die();
+// }
+?>

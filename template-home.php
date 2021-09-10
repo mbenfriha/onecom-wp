@@ -26,7 +26,9 @@
 
             <div class="">
                 <a href="<?= get_permalink($recent["ID"]) ?> ">
-                    <img class="w-full max-h-96" src="<?= get_the_post_thumbnail( $recent["ID"] )?>
+                <div class="h-96 overflow-hidden bg-yellow-200">
+                    <img class="w-full" src="<?= get_the_post_thumbnail( $recent["ID"] )?>
+                    </div>
                     </a>
                     <div class=" py-4">
                     <div class="font-bold text-lg mb-2"><?= get_the_category_list($recent['ID'] ) ?>
@@ -58,16 +60,25 @@
     </div>
     <!-- /section -->
     <section class="grid lg:grid-rows-4 lg:grid-flow-col grid-flow-row gap-4 mb-16 grid-rows-1">
-        <div class="background-image-galery lg:row-span-4 lg:col-span-2 rounded-md flex md:h-610 justify-center items-center text-white text-2xl font-extrabold"
-            style="background-image: url(<?= $projects['image_left']['url'] ?>); height: 1110px;">
-        </div>
-        <div class="background-image-galery  lg:row-span-2 lg:col-span-2 h-610 rounded-md flex justify-center items-center text-white text-2xl font-extrabold"
-            style="background-image: url(<?= $projects['image_right_top']['url'] ?>);">
+    <?php
+				$args = array(
+					'post_type' => 'realisation',
+					'numberposts' => 3,
+					'orderby' => 'rand',
+				);
+                $recent_realisations = wp_get_recent_posts( $args );?>
 
-        </div>
-        <div class="background-image-galery  lg:row-span-2 lg:col-span-2 rounded-md h-610 flex justify-center items-center text-white text-2xl font-extrabold"
-            style="background-image: url(<?= $projects['image_right_bot']['url'] ?>);">
-        </div>
+        <a class="background-image-galery lg:row-span-4 lg:col-span-2 rounded-md flex md:h-610 justify-center items-center text-white text-2xl font-extrabold" href="<?= get_permalink($recent_realisations[0]["ID"]) ?>"
+            style="background-image: url(<?= get_the_post_thumbnail_url( $recent_realisations[0]["ID"] ) ?>); height: 1110px;">
+            </a>
+        <a class="background-image-galery lg:row-span-2 lg:col-span-2 h-610 rounded-md flex justify-center items-center text-white text-2xl font-extrabold" href="<?= get_permalink($recent_realisations[1]["ID"]) ?>" 
+            style="background-image: url(<?= get_the_post_thumbnail_url( $recent_realisations[1]["ID"] ) ?>);">
+
+            </a>
+        <a class="background-image-galery lg:row-span-2 lg:col-span-2 rounded-md h-610 flex justify-center items-center text-white text-2xl font-extrabold" href="<?= get_permalink($recent_realisations[2]["ID"]) ?>"
+            style="background-image: url(<?= get_the_post_thumbnail_url( $recent_realisations[2]["ID"] ) ?>);">
+            </a>
+
     </section>
 
     <h2 class="text-8xl mb-10 font-normal">Prestations</h2>
@@ -118,13 +129,7 @@ else :
 endif;
 ?>
 
-    </section>
-    <section class="grid grid-cols-1 gap-4">
-        <div class="col-span-1 justify-center flex mb-20 mt-32">
-        <div class="video-responsive w-full">
-        <iframe src="https://player.vimeo.com/video/539601103" width="640" height="360" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
-        </div>
-        </div>
+
     </section>
     </main>
 </div>

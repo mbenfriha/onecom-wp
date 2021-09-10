@@ -85,7 +85,7 @@
                 <div class="home-nav">
                     <img class="stroke-menu <?php echo $header['image_header'] ? '' : 'black-image' ?>"
                         src="<?php echo get_template_directory_uri(); ?>/img/icons/losange_trace.png" alt="">
-                    <a  href="<?php echo is_front_page() ? '#' : home_url() ?>" class="<?php echo is_front_page() ? 'line-through' : '' ?> ml-16">Accueil</a>
+                    <a  href="<?php echo is_front_page() ? '#' : home_url() ?>" class="<?php echo is_front_page() ? '' : '' ?> ml-16">Accueil</a>
                 </div>
                 <?php html5blank_nav(); ?>
             </nav>

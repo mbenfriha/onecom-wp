@@ -4,13 +4,33 @@
 
 <main role="main">
     <!-- section -->
+<div class="grid grid-cols-1 p-4 justify-items-center">
+<div>
+<button type="button" data-ajax="<?= site_url() ?>/wp-admin/admin-ajax.php" class="selectFilter active p-4 rounded-md mr-4 text-white font-bold text-2xl" id="all">Tous</button>
 
-    <section class="grid grid-cols-1 gap-4 py-4 lg:grid-cols-4">
+<?php 
+if( $terms = get_terms( array(
+    'taxonomy' => 'category', // to make it simple I use default categories
+    'orderby' => 'name'
+) ) ) : foreach ( $terms as $term ) :?>
+	<!-- // // if categories exist, display the dropdown
+	// echo '<select id="categoryfilter" data-ajax="'. site_url() .'/wp-admin/admin-ajax.php" name="categoryfilter"><option value="">Select category...</option>';
+	// foreach ( $terms as $term ) :
+	// 	echo '<option value="' . $term->term_id . '">' . $term->name . '</option>'; // ID of the category as an option value
+	// endforeach;
+	// echo '</select>'; -->
+
+    <button type="button" data-ajax="<?= site_url() ?>/wp-admin/admin-ajax.php" class="selectFilter  p-4 rounded-md mr-4 font-bold text-2xl" id="<?=$term->term_id?>"><?= $term->name ?></button>
+      <?php  
+endforeach;
+endif;
+        ?>
+</div>
+</div>
+    <section class="grid grid-cols-1 gap-4 py-4 lg:grid-cols-4" id="response">
+ 
+
         <?php
-                $args = array(
-                    'post_type' => 'realisation',
-                    'numberposts' => '100'
-                );
                 $recent_posts = wp_get_recent_posts($args);
                 $the_query = new WP_Query(array( 'orderby' => 'rand', 'posts_per_page' => '100', 'post_type' => 'realisation'));
 

@@ -128,7 +128,7 @@
         <div class="box-border md:box-content">
 
 
-            <div class="h-96 place-items-auto bg-black-grey bg-opacity-100 flex items-center justify-center mb-36">
+            <div class="h-96 place-items-auto bg-black-grey bg-opacity-100 flex items-center justify-center">
                 <div class="text-white text-center text-2xl mb-8 font-normal lg:text-4xl">
                     <p class="my-6">
                         Vous souhaitez prendre un café ! Nous rencontrer ?

@@ -498,7 +498,8 @@ nav a {
   font-size: 18px;
 }
 .current_page_item a {
-  text-decoration: line-through;
+  /* text-decoration: line-through; */
+  font-weight: 800;
 } /* contact */
 
 #responsive-form {
@@ -523,6 +524,20 @@ nav a {
   content: "";
   display: table;
   clear: both;
+}
+
+.selectFilter { 
+  color: #212121;
+  border: 2px solid white;
+  transition: color 0.2s linear;
+  font-family: 'Montserrat';
+}
+.selectFilter:hover {
+  color: #fcb42d;   
+}
+
+.selectFilter.active {
+  color: #fcb42d;   
 }
 
 @media only screen and (min-width: 48em) {
