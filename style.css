@@ -72,7 +72,7 @@ header p {
   color: white;
 }
 a:hover {
-  color: white;
+  color: #fcb42d;
   opacity: 0.9;
 }
 a:focus {

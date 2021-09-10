@@ -21,12 +21,12 @@
 				?>
         <div>
 
-            <a href="<?= get_permalink($recent["ID"])?>">
-                <div class="background-image-galery relative text-white text-2xl font-extrabold"
-                    style="background-image: url(<?= get_the_post_thumbnail_url( $postid) ?>); height: 410px;">
+		<a href="<?= get_permalink($recent["ID"])?>">
+            <div class="background-image-galery relative text-white text-2xl font-extrabold"
+                style="background-image: url(<?= get_the_post_thumbnail_url( $postid) ?>); height: 410px;">
 
-                </div>
-            </a>
+            </div>
+			</a>
 
             <p class="mt-5 mb-5 uppercase"> <span
                     class="category-real font-normal mr-4"><?= the_category(', '); ?></span>

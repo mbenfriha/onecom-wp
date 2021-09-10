@@ -118,7 +118,13 @@ else :
 endif;
 ?>
 
-
+    </section>
+    <section class="grid grid-cols-1 gap-4">
+        <div class="col-span-1 justify-center flex mb-20 mt-32">
+        <div class="video-responsive w-full">
+        <iframe src="https://player.vimeo.com/video/539601103" width="640" height="360" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
+        </div>
+        </div>
     </section>
     </main>
 </div>

@@ -95,7 +95,7 @@
 
                 <p class="text-4xl mb-10 font-medium"><?php echo $header['title'] ?> </p>
                 <hr class="w-24 mb-20">
-                <p class="text-8xl mb-10 font-extrabold"><?php echo $header['subtitle'] ?></p>
+                <p class="text-6xl mb-10 font-extrabold lg:text-8xl"><?php echo $header['subtitle'] ?></p>
                 <p class="text-4xl font-medium">
                 <?php echo $header['text'] ?>
                 </p>
@@ -110,7 +110,7 @@
                             </a>
                             </li>
                     <li class="mb-10 h-20">
-                    <a href="https://www.instagram.com/mehdiboswingel/">
+                    <a href="https://www.instagram.com/onecommulhouse/">
                     <img
                             src="<?php echo get_template_directory_uri(); ?><?php echo $header['image_header'] ? '/img/instagram.png' : '/img/instagramblack.png' ?>"
                             alt="onecom instagram" class="float-right">

@@ -9,7 +9,23 @@
         <!-- article -->
         <article class="mb-36" id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 
-            <!-- post thumbnail -->
+         
+
+            <!-- post title -->
+            <p class="display-inline mb-8 mt-44 relative">
+                <img class="stroke-menu black-image" style="left: -11em;"
+                    src="<?php echo get_template_directory_uri(); ?>/img/icons/losange_trace.png" alt="">
+                <a class="uppercase font-bold text-4xl mr-6" href="<?php the_permalink(); ?>"
+                    title="<?php the_title(); ?>">
+                    <?php the_title(); ?>
+                </a>
+                <span class="text-xl category-real uppercase font-normal mr-6"> <?=edit_post_link();?></span>
+
+                <span class="text-xl uppercase font-normal mr-6"><?php the_time('F Y'); ?> </span>
+                <span class="text-xl category-real uppercase font-normal"><?= the_category(', ') ?></span>
+            </p>
+
+               <!-- post thumbnail -->
             <?php
         $images = get_field('single-realisation');
         $size = 'medium'; // (thumbnail, medium, large, full or custom size)
@@ -24,25 +40,15 @@
             </div>
             <?php endif; ?>
             <!-- /post thumbnail -->
-
-            <!-- post title -->
-            <p class="display-inline mb-8 relative">
-                <img class="stroke-menu black-image" style="left: -11em;"
-                    src="<?php echo get_template_directory_uri(); ?>/img/icons/losange_trace.png" alt="">
-                <a class="uppercase font-bold text-4xl mr-6" href="<?php the_permalink(); ?>"
-                    title="<?php the_title(); ?>">
-                    <?php the_title(); ?>
-                </a>
-                <span class="text-xl category-real uppercase font-normal mr-6"> <?=edit_post_link();?></span>
-
-                <span class="text-xl uppercase font-normal mr-6"><?php the_time('F Y'); ?> </span>
-                <span class="text-xl category-real uppercase font-normal"><?= the_category(', ') ?></span>
-            </p>
             <!-- /post title -->
 
 
             <div class="grid text-xl font-normal grid-cols-1 mb-10 lg:grid-cols-2 gap-12">
-                <div>
+   
+                <div class="flex flex-wrap content-center">
+                    <?php the_content(); // Dynamic Content?>
+                </div>
+                             <div>
                     <?php
     // Check rows exists.
     if (have_rows('video_real')):
@@ -64,9 +70,6 @@
         // Do something...
     endif;
     ?>
-                </div>
-                <div class="flex flex-wrap content-center">
-                    <?php the_content(); // Dynamic Content?>
                 </div>
             </div>
 
