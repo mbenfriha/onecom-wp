@@ -67,7 +67,7 @@
                 ?>
         </section>
 
-        <h2 class="text-8xl  mb-10 font-normal mt-20">L'équipe</h2>
+        <h2 class="text-8xl  mb-16 font-normal mt-20">L'équipe</h2>
         <hr class="w-24 mb-20 border-solid border-1 border-black">
 
         <section class="grid grid-cols-1 mb-36 gap-6 lg:grid-cols-3">
@@ -80,7 +80,7 @@
                     while( have_rows('team_group') ) : the_row();
                     ?>
                             <div>
-                                <div class="bg-black h-610 mb-12"  style='background-image: url(<?= esc_url( get_sub_field('image')['url']) ?>)'></div>
+                                <div class="bg-black h-610 mb-12 background-image"  style='background-image: url(<?= esc_url( get_sub_field('image')['url']) ?>)'></div>
                                 <p class="uppercase text-3xl font-bold mb-4">
                                     <?= get_sub_field('name') ?>
                                 </p>

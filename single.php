@@ -2,7 +2,7 @@
 <?php 
 	 $coverPost = get_field('cover-post');
 	?>
-<div class="grid grid-cols-1 h-610 background-image-galery mb-4" style="background-image:url(<?= $coverPost['url'] ?>)">
+<div class="grid grid-cols-1 <?= $coverPost['url'] ? 'h-610' : '' ?>  background-image-galery mb-4" style="background-image:url(<?= $coverPost['url'] ?>)">
 </div>
 
 	<main role="main" class="wrapper">

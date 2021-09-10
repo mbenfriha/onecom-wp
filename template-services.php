@@ -7,7 +7,7 @@
     <section>
 
         <div class="wrapper">
-            <h2 class="text-8xl mb-8 font-normal mt-15">
+            <h2 class="text-8xl mb-8 font-normal mt-28">
 
                 <?php the_field('subtitle_page'); ?>
             </h2>
@@ -20,63 +20,58 @@
                 <h3 class="text-3xl mb-32 font-normal col-span-6">
                     <?php the_field('text_page'); ?>
                 </h3>
-                <h2 class="text-5xl mb-24 font-normal mt-15 uppercase">Photographies</h2>
-                <section class="grid grid-cols-1 gap-4 lg:grid-cols-3">
-                    <div class="rounded overflow-hidden">
+                <h2 class="text-5xl mb-10 font-normal mt-15 uppercase">Photographies</h2>
+                <h3 class="text-3xl mb-20 font-normal col-span-6">
+                    <?php the_field('desc_photo'); ?>
+                </h3>
+                <section class="grid grid-cols-1 gap-4 mb-32 lg:grid-cols-3">
+                    <div class="background-image-galery  relative text-white text-3xl font-extrabold">
 
                         <img class="w-full h-610" src="<?php the_field('service_photo_image_1'); ?>" />
-                        <div class="py-4">
-                            <p class="text-2xl font-normal my-4"><?php the_field('service_photo_texte_1'); ?></p>
-
-                        </div>
+                        <div class="absolute bottom-8 left-8 overlay-galery">
+								<p class="uppercase text-shadow"> <?= the_field('service_photo_texte_1');?></p>
+							</div>
                     </div>
-                    <div class="rounded overflow-hidden">
+                    <div class="background-image-galery  relative text-white text-3xl font-extrabold">
 
                         <img class="w-full h-610" src="<?php the_field('service_photo_image_2'); ?>" />
-                        <div class="py-4">
-                            <p class="text-2xl font-normal my-4"><?php the_field('service_photo_texte_2'); ?></p>
-
-                        </div>
+                        <div class="absolute bottom-8 left-8 overlay-galery">
+								<p class="uppercase text-shadow"> <?= the_field('service_photo_texte_2');?></p>
+							</div>
                     </div>
-                    <div class="rounded overflow-hidden">
+                    <div class="background-image-galery  relative text-white text-3xl font-extrabold">
 
                         <img class="w-full h-610" src="<?php the_field('service_photo_image_3'); ?>" />
-                        <div class="py-4">
-                            <p class="text-2xl font-normal my-4"><?php the_field('service_photo_texte_3'); ?></p>
-
-                        </div>
+                        <div class="absolute bottom-8 left-8 overlay-galery">
+								<p class="uppercase text-shadow"> <?= the_field('service_photo_texte_3');?></p>
+							</div>
                     </div>
                 </section>
-                <h2 class="text-5xl mb-24 font-normal mt-20 uppercase">Vidéos</h2>
-                <section class="grid grid-cols-1 gap-4 lg:grid-cols-3">
-                    <div class="rounded overflow-hidden">
+                <h2 class="text-5xl mb-10 font-normal uppercase">Vidéos</h2>
+                <h3 class="text-3xl mb-20 font-normal col-span-6">
+                    <?php the_field('desc_video'); ?>
+                </h3>
+                <section class="grid grid-cols-1 gap-4 mb-32 lg:grid-cols-3">
+                    <div class="background-image-galery  relative text-white text-3xl font-extrabold">
 
-                        <a href="#"> <img class="w-full h-610"
-                                src="<?php the_field('service_video_image_1'); ?>" /></a>
-                        <div class="py-4">
-                            <p class="text-2xl font-normal my-4"><?php the_field('service_video_texte_1'); ?></p>
-
+                        <img class="w-full h-610" src="<?php the_field('service_video_image_1'); ?>" />
+                        <div class="absolute bottom-8 left-8 overlay-galery">
+                            <p class="uppercase text-shadow"> <?= the_field('service_video_texte_1');?></p>
                         </div>
                     </div>
-                    <div class="rounded overflow-hidden">
+                    <div class="background-image-galery  relative text-white text-3xl font-extrabold">
 
-                        <a href="#"> <img class="w-full h-610"
-                                src=<?php the_field('service_video_image_2'); ?>" /></a>
-                        <div class="py-4">
-                            <p class="text-2xl font-normal my-4"><?php the_field('service_video_texte_2'); ?></p>
-
+                        <img class="w-full h-610" src="<?php the_field('service_video_image_2'); ?>" />
+                        <div class="absolute bottom-8 left-8 overlay-galery">
+                            <p class="uppercase text-shadow"> <?= the_field('service_video_texte_2');?></p>
                         </div>
                     </div>
-                    <div class="rounded overflow-hidden">
+                    <div class="background-image-galery  relative text-white text-3xl font-extrabold">
 
-                        <a href="#"> <img class="w-full h-610"
-                                src="<?php the_field('service_video_image_3'); ?>" /></a>
-                        <div class="py-4">
-                            <p class="text-2xl font-normal my-4"><?php the_field('service_video_texte_3'); ?></p>
-
+                        <img class="w-full h-610" src="<?php the_field('service_video_image_3'); ?>" />
+                        <div class="absolute bottom-8 left-8 overlay-galery">
+                            <p class="uppercase text-shadow"> <?= the_field('service_video_texte_3');?></p>
                         </div>
-                        &nbsp;
-
                     </div>
                 </section>
             </div>

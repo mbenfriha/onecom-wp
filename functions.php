@@ -76,7 +76,7 @@ function html5blank_nav()
 		'menu_id'         => '',
 		'echo'            => true,
 		'fallback_cb'     => 'wp_page_menu',
-		'before'          => '<span>01</span> ',
+		'before'          => '<span>O</span> ',
 		'after'           => '',
 		'link_before'     => '',
 		'link_after'      => '',
@@ -129,7 +129,8 @@ function register_html5_menu()
         'header-menu' => __('Header Menu', 'html5blank'), // Main Navigation
         'sidebar-menu' => __('Sidebar Menu', 'html5blank'), // Sidebar Navigation
         'extra-menu' => __('Menu bas de page milieu', 'html5blank'), // Extra Navigation if needed (duplicate as many as you need!)
-        'extra-menu-right' => __('Menu bas de page droite', 'html5blank') // Extra Navigation if needed (duplicate as many as you need!)
+        'extra-menu-right' => __('Menu bas de page droite', 'html5blank'), // Extra Navigation if needed (duplicate as many as you need!)
+        'extra-menu-mobile' => __('Menu mobile', 'html5blank') // Extra Navigation if needed (duplicate as many as you need!)
     ));
 }
 
